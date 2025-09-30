@@ -1,0 +1,73 @@
+#include <stdio.h>
+
+int main() {
+    // A torre (for) para repeticoes conehecidas de interacoes.
+    const int TORRE = 5;
+
+    printf("Movimento da Torre (5 casas para a direita) \n");
+
+    //Definindo do for inicializacao o contador passos e define parada
+      for (int passo = 1; passo <= TORRE; passo++) {
+        printf("Passo %d: Direita\n", passo);
+    }
+    printf("\n"); 
+
+    // Referente numero de casas que o bispo ira andar.
+    const int BISPO = 5;
+    int move_bi = 1; // O contador precisa ser inicializado antes do loop 'while'.
+
+    printf("--- Movimento do Bispo (5 casas na Diagonal Cima-Direita) ---\n");
+
+    //Incio do while para verificar a condicao antes de execucao.
+    while (move_bi <= BISPO) {
+        // E o movimeneto do bispo representa duas direcoes cima e direita
+        printf("Passo %d: Cima, Direita\n", move_bi);
+        
+        // Loop incrementa o contador
+        move_bi++;
+    }
+    printf("\n"); 
+
+
+    // definicao de casas que a rainha  se move.
+    const int RAINHA = 8;
+    int move_rainha = 1; 
+
+    printf("Movimento da Rainha (8 casas para a Esquerda) ---\n");
+
+    // O loop 'do-while' execucao do bloco do código executado pelo menos uma vez
+    do {
+        printf("Passo %d: Esquerda\n", move_rainha);
+
+        
+        move_rainha++;
+
+    } while (move_rainha <= RAINHA);
+	
+	
+
+//  Movimento do Cavalo (usando 'for' e 'while') ---
+
+    // movimentacao L do cavalo.
+    const int CAVALO_V = 2;
+    const int CAVALO_H = 1;
+
+    printf("Movimento do Cavalo (2 casas para Baixo e 1 para a Esquerda)\n");
+
+    // movimento1: 2 casas para baixo, com loop for.
+    // loop aninhado do conceito do movimento.
+    printf("Parte 1 do L: Movendo baixo...\n");
+    for (int passo_v = 1; passo_v <= CAVALO_V; passo_v++) {
+        printf("  - Passo %d: Baixo\n", passo_v);
+    }
+
+    // movimento2: 1 casa para a esquerda, simulada loop while.
+    int passo_h = 1; // Inicializa o contador para o movimento horizontal.
+    printf("Parte 2 do 'L': Movendo  a esquerda...\n");
+    while (passo_h <= CAVALO_H) {
+        printf("  - Passo %d: Esquerda\n", passo_h);
+        passo_h++;
+    }
+
+    return 0; 
+}

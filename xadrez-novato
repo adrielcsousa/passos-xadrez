@@ -1,0 +1,48 @@
+#include <stdio.h>
+
+int main() {
+    // A torre (for) para repeticoes conehecidas de interacoes.
+    const int TORRE = 5;
+
+    printf("Movimento da Torre (5 casas para a direita) \n");
+
+    //Definindo'for' inicializacao o contador passos e define parada
+      for (int passo = 1; passo <= TORRE; passo++) {
+        printf("Passo %d: Direita\n", passo);
+    }
+    printf("\n"); 
+
+    // Referente numero de casas que o bispo ira andar.
+    const int BISPO = 5;
+    int move_bi = 1; // O contador precisa ser inicializado antes do loop 'while'.
+
+    printf("--- Movimento do Bispo (5 casas na Diagonal Cima-Direita) ---\n");
+
+    //Incio do 'while' para verificar a condicao antes de execucao.
+    while (move_bi <= BISPO) {
+        // E o movimeneto do bispo representa duas direcoes cima e direita
+        printf("Passo %d: Cima, Direita\n", move_bi);
+        
+        // Loop incrementa o contador
+        move_bi++;
+    }
+    printf("\n"); 
+
+
+    // definicao de casas que a rainha  se move.
+    const int RAINHA = 8;
+    int move_rainha = 1; 
+
+    printf("Movimento da Rainha (8 casas para a Esquerda) ---\n");
+
+    // O loop 'do-while' execucao do bloco do código executado pelo menos uma vez
+    do {
+        printf("Passo %d: Esquerda\n", move_rainha);
+
+        
+        move_rainha++;
+
+    } while (move_rainha <= RAINHA);
+
+    return 0; 
+}

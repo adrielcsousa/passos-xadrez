@@ -1,0 +1,110 @@
+#include <stdio.h>
+
+//Declaracao das funcoes 
+void moverTorre(int passo_atual, int total_passos);
+void moverBispo(int passo_atual, int total_passos);
+void moverRainha(int passo_atual, int total_passos);
+void moverCavalo(void);
+
+
+int main(void) {
+    // Movimento da Torre com Recursividade
+	// Chamada inicial da função recursiva
+    printf("\n");	
+    const int R_TORRE = 5;
+    printf("Movimento da Torre (5 casas para a Direita) [Recursivo]\n");
+    moverTorre(1, R_TORRE); 
+
+    // Movimento do Bispo com Recursividade e loops aninhados
+    const int R_BISPO = 5;
+    printf("Movimento do Bispo (5 casas na Diagonal) [Recursivo com Loops Aninhados] ---\n");
+    moverBispo(1, R_BISPO);
+    printf("\n");
+
+    // Movimento da Rainha com Recursividade 
+    const int R_RAINHA = 8;
+    printf("Movimento da Rainha (8 casas para a Esquerda) [Recursivo]\n");
+    moverRainha(1, R_RAINHA);
+    printf("\n");
+
+    // Movimento do Cavalo com Loops Complexos ---
+    printf("Movimento do Cavalo (2 Cima, 1 Direita) [Loop Complexo]\n");
+    moverCavalo();
+
+    return 0;
+}
+
+
+void moverTorre(int passo_atual, int total_passos) {
+    // condicao que para a recursao.
+    // Se ultrapassar a funcao retorna.
+    if (passo_atual > total_passos) {
+        return;
+    }
+
+    // imprime o movimento do passo
+    printf("Passo %d: Direita\n", passo_atual);
+
+    
+}
+
+void moverBispo(int passo_atual, int total_passos) {
+    // quando todos os passos forem concluídos.
+    if (passo_atual > total_passos) {
+        return;
+    }
+
+    // acao com loops aninhados:
+    // loops aninhados para simular o movimento.
+    // o loop externo representa o movimento vertical e o interno, o horizontal.
+    // Como o movimento e 1 para cima e 1 para a direita a cada passo,
+    // os loops rodam apenas uma vez por chamada recursiva.
+    for (int v = 0; v < 1; v++) {       // Loop vertical 
+        for (int h = 0; h < 1; h++) {   // Loop horizontal 
+            printf("Passo %d: Cima, Direita\n", passo_atual);
+        }
+    }
+
+    // Passo Recursivo: chama a função para o próximo passo diagonal.
+    moverBispo(passo_atual + 1, total_passos);
+}
+
+void moverRainha(int passo_atual, int total_passos) {
+    // recursao
+    if (passo_atual > total_passos) {
+        return;
+    }
+
+    //imprime o movimento.
+    printf("Passo %d: Esquerda\n", passo_atual);
+
+    // recurcao  chama a si mesma para o proximo passo.
+    moverRainha(passo_atual + 1, total_passos);
+}
+
+void moverCavalo(void) {
+    const int P_VERTICAIS = 2;
+    const int P_HORIZONTAIS = 1;
+    const int TOTAL_PASSOS = P_VERTICAIS + P_HORIZONTAIS;
+
+    // Este loop 'for' controla o numero total de etapas do movimento.
+    for (int passo = 1; passo <= TOTAL_PASSOS; passo++) {
+        
+        // Condicao para os movimentos verticais
+        if (passo <= P_VERTICAIS) {
+            printf("  - Passo Vertical %d: Cima\n", passo);
+            // 'continue' pula o resto do código no loop e força a próxima iteração.
+            // Útil aqui para garantir que o movimento horizontal não seja verificado.
+            continue;
+        }
+
+        // Condicao para o movimento horizontal
+        if (passo > P_VERTICAIS) {
+            printf("  - Passo Horizontal %d: Direita\n", passo - P_VERTICAIS);
+            // 'break' encerra o loop 
+            // para garantir que o loop pare assim que o movimento em "L"
+            // for concluído, mesmo que TOTAL_PASSOS fosse maior.
+            break;
+        }
+    }
+}
